@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="underscore.js"></script>
+	</head>
+	<body>
+	</body>
+	<script type='text/html'>
+
+
+		var arr=["a","b","c"];
+		_.each(arr,function(item,i){
+			console.log(item,i)
+		})
+		var obj={
+			"a":1,
+			"b":2,
+			"c":3
+		}
+		_.each(obj,function(item,key){
+			console.log(item,key);
+		})
+	</script>
+	<script type='text/html'>
+		var arr=["1","2","3"];
+		var arr2=_.map(arr,function(item,i){
+			return item;
+			
+		})
+		console.log(arr2);
+	</script>
+	<script>
+		var obj={
+			0:"1",
+			1:"2",
+			2:"3",
+			length:3
+		}
+		var obj2=_.toArray(obj);
+		console.log(obj2);
+	</script>
+</html>
+

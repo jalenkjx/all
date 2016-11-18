@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/books/books.css" />
+		<script src="/lib/angular.min.1.5.js"></script>
+		<script src="/lib/angular-route.min.js"></script>
+	</head>
+	<body ng-app="bookCmsApp">
+		<div ng-controller="bookAppCon">
+			<header>
+				<ul class="nav nav-tabs" role="tablist">
+				  <li role="presentation" 
+				  	ng-click="tabNav('cata')" 
+				  	ng-class="{true:'active'}[bookclass.cata]">
+				  	<a href="#/cata">分类管理</a>
+				  </li>
+				  <li role="presentation" 
+				  	ng-click="tabNav('content')" 
+				  	ng-class="{true:'active'}[bookclass.content]">
+				  	<a href="#/content">文章管理</a>
+				  </li>
+				</ul>
+			</header>
+		</div>
+		<div ng-view></div>
+		<script src="/books/main.js"></script>
+	</body>
+</html>

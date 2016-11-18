@@ -1,0 +1,272 @@
+﻿#第一组
+server {
+    listen  80;
+    server_name g11.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://101.200.193.195;
+    }
+}
+server {
+    listen  80;
+    server_name g12.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://101.200.190.132;
+    }
+}
+
+
+#第二组
+server {
+    listen  80;
+    server_name g21.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://123.57.228.220;
+    }
+}
+server {
+    listen  80;
+    server_name g22.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://115.28.83.146;
+    }
+}
+server {
+    listen  80;
+    server_name g23.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://123.57.228.187;
+    }
+}
+server {
+    listen  80;
+    server_name g24.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://121.42.152.116;
+    }
+}
+
+#第三组
+server {
+    listen  80;
+    server_name g3.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://123.57.231.200;
+    }
+}
+
+#第四组
+server {
+    listen  80;
+    server_name g4.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://123.207.141.206;
+    }
+}
+
+#第五组
+server {
+    listen  80;
+    server_name g5.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://123.57.225.143;
+    }
+}
+
+# 第六组
+server {
+    listen  80;
+    server_name g61.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://123.57.228.244;
+    }
+}
+
+server {
+    listen  80;
+    server_name g62.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://101.200.193.219;
+    }
+}
+
+server {
+    listen  80;
+    server_name g63.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://123.57.229.232;
+    }
+}
+
+server {
+    listen  80;
+    server_name g64.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://123.206.42.185;
+    }
+}
+
+# 7组
+server {
+    listen  80;
+    server_name g71.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://120.27.110.191;
+    }
+}
+
+server {
+    listen  80;
+    server_name g72.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://114.215.24.62;
+    }
+}
+server {
+    listen  80;
+    server_name g73.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://59.110.8.137;
+    }
+}
+
+
+# 第八组
+server {
+    listen  80;
+    server_name g81.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://114.215.133.35;
+    }
+}
+server {
+    listen  80;
+    server_name g82.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://121.42.32.171;
+    }
+}
+
+
+# svon
+server {
+    listen  80;
+    server_name wx.jscook.cn;
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://115.28.70.159;
+    }
+}
+

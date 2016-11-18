@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			a{
+				font-size: 30px;
+				display: inline-block;
+				margin-right: 20px;
+			}
+		</style>
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+	</head>
+	<body>
+		<a href="#/home">首页</a>
+		<a href="#/user">个人中心</a>
+		<a href="#/other">其它</a>
+		<a href="#/new">最新信息</a>
+		<hr>
+		<div id="wrap">
+			
+		</div>
+		<script>
+			//监听window 地址上的 hash 值是否发生改变
+			require(["hash"],function(hash){
+//
+//				//向 hash 中加入一个自定义的路由地址
+				hash.addroute("/home",function(){
+					$("#wrap").load("home.html");
+				});
+//				
+//				//向 hash 中加入一个自定义的路由地址
+				hash.addroute("/user",function(){
+					$("#wrap").load("user.html");
+				});
+//				
+//				//向 hash 中加入一个自定义的路由地址
+				hash.addroute("/other",function(){
+					$("#wrap").load("other.html");
+				});
+				
+//				/html/a.html
+//				/html/b.html
+				
+				hash.addroute("/^\/.*\.html/i",function(){
+					$("#wrap").html("最新消息");
+				});
+				
+				//主动刷新一次 页面地址栏 hash 值得变化
+				hash.refresh();
+			});
+		</script>
+	</body>
+</html>

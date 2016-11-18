@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>凡客</title>
+  	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  	 <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="/css/swiper.min.css">
+  	<link rel="stylesheet" type="text/css" href="/css/fake/index.css"/>
+    <!-- Swiper JS -->
+    <script src="../js/require.js"></script>
+    <script src="../js/config.js"></script>
+    <style>
+    	html{
+    		font-size: 15.625vw;
+    	}
+	    html, body {
+	        position: relative;
+	        height: 100%;
+	    }
+	    body {
+	        background: #eee;
+	        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	        color:#000;
+	        margin: 0;
+	        padding: 0;
+	    }
+	    .swiper-container {
+	        width: 100%;
+	        height: ;
+	        
+	    }
+	    .swiper-slide {
+	        text-align: center;
+	        background: #fff;
+	        /* Center slide text vertically */
+	        display: -webkit-box;
+	        display: -ms-flexbox;
+	        display: -webkit-flex;
+	        display: flex;
+	        -webkit-box-pack: center;
+	        -ms-flex-pack: center;
+	        -webkit-justify-content: center;
+	        justify-content: center;
+	        -webkit-box-align: center;
+	        -ms-flex-align: center;
+	        -webkit-align-items: center;
+	        align-items: center;
+	    }
+	    .swiper-slide img{
+	    	width: 100%;
+	    	height: 3.8rem;
+	    }
+    </style>
+</head>
+<body>
+	<div class="loading hide">loading...</div>
+	<header>
+		<form class="search-form"> 
+			<input id="search-btn" type="submit" class="search-icon" value=""> 
+			<input id="search-input" type="search" name="keyWord"   placeholder="穆旦"> 
+		</form>
+		<a class="index-message"> 
+			<span class="hasNewMsg" style="display: inline;">
+			</span> 
+		</a>
+	</header>
+    <!-- Swiper 开始-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="lazyLoad" src="http://i2.m.vancl.com/wap/2016_10_10_15_33_37_2980_640x402.jpg" alt="羽绒服m"></div>
+            <div class="swiper-slide"><img class="lazyLoad" src="http://mimages.vancl.com/wap/2016_10_12_17_27_33_691_640x402.jpg" alt="外套频道m"></div>
+            <div class="swiper-slide"><img class="lazyLoad" src="http://i6.m.vancl.com/wap/2016_10_17_16_20_34_6583_640x402.jpg"  alt="鞋频道m"></div>
+            <div class="swiper-slide"><img class="lazyLoad" src="http://i9.m.vancl.com/wap/2016_9_30_16_45_5_9292_640x402.jpg"  alt="针织衫m"></div>
+            <div class="swiper-slide"><img class="lazyLoad" src="http://i6.m.vancl.com/wap/2016_10_17_16_20_34_6583_640x402.jpg"  alt="鞋频道m"></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+	 <!-- Swiper结束 -->
+	 <section>
+	 	<div class="warning"> 
+	 		<a>
+	 			<img src="http://i4.m.vancl.com/wap/2016_9_13_11_22_35_4479_640x80.jpg">
+	 		</a> 
+	 	</div>
+	 	<figure>
+	 		<figcaption>
+	 			<img src="http://i5.m.vancl.com/wap/2016_9_12_10_40_41_5537_640x80.jpg" alt="" />
+	 		</figcaption>
+	 		<div class="list">
+	 			<ul>
+	 				
+	 			</ul>
+	 		</div>
+	 	</figure>
+
+	 </section>
+ 	<nav>
+ 		<a href="#/">
+ 			<span id="nav-home" class="nav-home"></span>
+ 		</a>
+ 		<a href="javascript:;">
+ 			<span id="nav-search" class="nav-search"></span>
+ 		</a>
+ 		<a href="javascript:;">
+ 			<span id="nav-Tshirt" class="nav-Tshirt"></span>
+ 		</a>
+ 		<a href="javascript:;">
+ 			<span id="nav-shopcart" class="nav-shopcart"></span>
+ 		</a>
+ 		<a href="javascript:;">
+ 			<span id="nav-me" class="nav-me"></span>
+ 		</a>
+ 	</nav>
+ 	<script>
+ 		require(["swiper"],function(Swiper){
+ 			var swiper = new Swiper('.swiper-container', {
+		        pagination: '.swiper-pagination',
+		        nextButton: '.swiper-button-next',
+		        prevButton: '.swiper-button-prev',
+		        paginationClickable: true,
+		        spaceBetween: 30,
+		        centeredSlides: true,
+		        autoplay: 2500,
+		        autoplayDisableOnInteraction: false
+		   });
+			
+ 		});
+ 	</script>
+ 	
+ 	<script>
+ 		require(
+ 			[
+ 				"hash", //路由模块
+ 				"fanke/loading", //loading
+ 				"fanke/home", //首页模块
+ 				"fanke/group", //专题模块
+ 				"fanke/page" //详情模块
+ 			],
+ 			function(hash,loading,home,group,page){
+	 			//绑定首页路由
+	 			hash.addroute(/^\/$|^$/,function(){
+	 				//执行 home 事件
+	 				//触发首页列表数据展示
+	 				home();
+	 			});
+	 			
+	 			//绑定首页路由
+	 			hash.addroute(/^\/shop\/detail/,function(url){
+	 				//执行 group 事件
+	 				//触发专题列表数据展示
+	 				group(url);
+	 			});
+	 			
+	 			//详情页路由
+	 			hash.addroute(/^\/page\/[0-9]+/,function(url){
+	 				loading.show();
+	 				page(url);
+	 			});
+	 			
+	 			
+	 			//主动刷新路由事件，避免页面刷新时路由不会触发
+	 			hash.refresh();
+ 		});
+ 	</script>
+ 	
+</body>
+</html>

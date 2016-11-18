@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			document.cookie = "a=1";
+			document.cookie = "c=2";
+			document.cookie = "d=3";
+			document.cookie = "e=4";
+			
+			var ck = document.cookie.replace(/;\s/g,";")
+			console.log(ck);
+			var name = "e";
+			var reg = RegExp("(;|^)"+name+"=([^;].*?)(;|$)");
+			
+//							;e=(2);
+			
+			var value = ck.match(reg);
+			console.log(value);
+			console.log(value[2]);
+		</script>
+	</body>
+</html>

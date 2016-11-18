@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>iscroll</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+		<style>
+			ul,li,ol{
+				list-style-type: none;
+			}
+		</style>
+		
+		<style type="text/css">
+			* {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			
+			html {
+				-ms-touch-action: none;
+			}
+			
+			body,ul,li {
+				padding: 0;
+				margin: 0;
+				border: 0;
+			}
+			
+			body {
+				font-size: 12px;
+				font-family: ubuntu, helvetica, arial;
+				overflow: hidden; /* this is important to prevent the whole page to bounce */
+			}
+			
+			#header {
+				position: absolute;
+				z-index: 2;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+				background: #CD235C;
+				padding: 0;
+				color: #eee;
+				font-size: 20px;
+				text-align: center;
+				font-weight: bold;
+			}
+			
+			#footer {
+				position: absolute;
+				z-index: 2;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 48px;
+				background: #444;
+				padding: 0;
+				border-top: 1px solid #444;
+			}
+			
+			#wrapper {
+				position: absolute;
+				z-index: 1;
+				top: 45px;
+				bottom: 48px;
+				left: 0;
+				width: 100%;
+				background: #ccc;
+				overflow: hidden;
+				font-size: 24px;
+				line-height: 30px;
+				font-weight: bold;
+				text-align: center;
+			}
+			#wrapper li:nth-child(2n+1){
+				background: #fff;
+				color: red;
+			}
+			#scroller {
+				position: absolute;
+				z-index: 1;
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
+				width: 2000px;
+				-webkit-transform: translateZ(0);
+				-moz-transform: translateZ(0);
+				-ms-transform: translateZ(0);
+				-o-transform: translateZ(0);
+				transform: translateZ(0);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-text-size-adjust: none;
+				-moz-text-size-adjust: none;
+				-ms-text-size-adjust: none;
+				-o-text-size-adjust: none;
+				text-size-adjust: none;
+				background: #fff;
+			}
+			
+			p {
+				font-size: 16px;
+				padding: 1.2em;
+				line-height: 200%;
+			}
+			
+			</style>
+	</head>
+	<body>
+		<div id="header">header</div>
+		<div id="wrapper">
+		    <ul>
+		       <li>1</li>
+		       <li>2</li>
+		       <li>3</li>
+		       <li>4</li>
+		       <li>5</li>
+		       <li>6</li>
+		       <li>7</li>
+		       <li>8</li>
+		       <li>9</li>
+		       <li>10</li>
+		       <li>11</li>
+		       <li>12</li>
+		       <li>13</li>
+		       <li>14</li>
+		       <li>15</li>
+		       <li>16</li>
+		       <li>17</li>
+		       <li>18</li>
+		       <li>19</li>
+		       <li>20</li>
+		       <li>21</li>
+		       <li>22</li>
+		       <li>23</li>
+		       <li>24</li>
+		       <li>25</li>
+		       <li>26</li>
+		       <li>27</li>
+		       <li>28</li>
+		       <li>29</li>
+		       <li>30</li>
+		       <li>31</li>
+		       <li>32</li>
+		       <li>33</li>
+		       <li>34</li>
+		       <li>35</li>
+		       <li>36</li>
+		       <li>37</li>
+		       <li>38</li>
+		       <li>39</li>
+		       <li>40</li>
+		       <li>41</li>
+		       <li>42</li>
+		       <li>43</li>
+		       <li>44</li>
+		       <li>45</li>
+		       <li>46</li>
+		       <li>47</li>
+		       <li>48</li>
+		       <li>49</li>
+		       <li>50</li>
+		       <li>51</li>
+		       <li>52</li>
+		       <li>53</li>
+		       <li>54</li>
+		       <li>55</li>
+		       <li>56</li>
+		       <li>57</li>
+		       <li>58</li>
+		       <li>59</li>
+		       <li>60</li>
+		       <li>61</li>
+		       <li>62</li>
+		       <li>63</li>
+		       <li>64</li>
+		       <li>65</li>
+		       <li>66</li>
+		       <li>67</li>
+		       <li>68</li>
+		       <li>69</li>
+		       <li>70</li>
+		       <li>71</li>
+		       <li>72</li>
+		       <li>73</li>
+		       <li>74</li>
+		       <li>75</li>
+		       <li>76</li>
+		       <li>77</li>
+		       <li>78</li>
+		       <li>79</li>
+		       <li>80</li>
+		       <li>81</li>
+		       <li>82</li>
+		       <li>83</li>
+		       <li>84</li>
+		       <li>85</li>
+		       <li>86</li>
+		       <li>87</li>
+		       <li>88</li>
+		       <li>89</li>
+		       <li>90</li>
+		       <li>91</li>
+		       <li>92</li>
+		       <li>93</li>
+		       <li>94</li>
+		       <li>95</li>
+		       <li>96</li>
+		       <li>97</li>
+		       <li>98</li>
+		       <li>99</li>
+		       <li>100</li>
+		    </ul>
+		</div>
+		<div id="footer">header</div>
+		<script>
+			var myScroll;
+			require(["iscroll","jquery"],function(IScroll,$){
+				myScroll = new IScroll('#wrapper',{
+					//开启滚动条样式
+					scrollbars : true
+				});
+<<<<<<< .mine
+				myScroll.on("scrollStart",function(){
+					//console.log("开始");
+					
+				});
+
+
+||||||| .r23
+//				myScroll.on("scrollStart",function(){
+//					console.log("开始");
+//				});
+
+
+=======
+>>>>>>> .r29
+				myScroll.on("scrollEnd",function(){
+					//将一个整数转为正数
+					//当前可滑动的最大区域高度
+					var maxScrollY = Math.abs(myScroll.maxScrollY);
+					// 当前定位的高度（滚动条高度）
+					var y = Math.abs(myScroll.y); 
+					// 当前滑动的距离 （Y 轴 高度）
+					var distY = parseInt(Math.abs(myScroll.distY));
+					
+
+					if(y == 0 && distY > 50){
+						var html = "";
+						new Array(30).fill("").forEach(function(item,i){
+							html += "<li>prepend - "+ i +"</li>";  
+						});
+						//将需要添加的元素添加到 dom 节点
+						$("ul","#wrapper").prepend(html);
+						//更新 组件，从新计算元素各项信息 比如元素高度
+						myScroll.refresh();
+					}
+					
+					//提前 100 个像素判断是否到底部
+					if(maxScrollY <= y + 100){
+						var html = "";
+						new Array(30).fill("").forEach(function(item,i){
+							html += "<li>append - "+ i +"</li>";  
+						});
+						//将需要添加的元素添加到 dom 节点
+						$("ul","#wrapper").append(html);
+						//更新 组件，从新计算元素各项信息 比如元素高度
+						myScroll.refresh();
+					}
+				});
+			});
+			//手动定位滚动显示位置
+			// 第一个参数是 X 轴
+			// 第二个参数是 Y 轴
+			// 第三个参数是 时间 （动画时间）
+//			myScroll.scrollTo(0,-300,1000)
+		</script>
+	</body>
+</html>

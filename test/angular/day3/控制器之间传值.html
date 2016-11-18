@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> angular 控制器之间如何传值 </title>
+    <script src="../lib/angular.min.1.5.js"></script>
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <div ng-controller="myAppCon1">
+        <button ng-click="test()">向控制器 2 传数据</button>
+        <p>
+          控制器 1 的数据 {{ data | json }}
+        </p>
+      </div>
+
+      <hr/>
+
+      <div ng-controller="myAppCon2">
+        <button ng-click="test()">向控制器 1 传数据</button>
+        <p>
+          控制器 2 的数据 {{ data | json }}
+        </p>
+      </div>
+    </div>
+
+    <script>
+			var app = angular.module('myApp', []);
+      //传递数据服务
+      app.factory("props", function() {
+          //用来存放数据
+          var map = {};
+
+          var props = {
+              //绑定代理
+              // handler 是一个函数
+              on : function(eventType, handler) {
+                  //判断对象中是否有换成数据
+                  if (!map[eventType]) {
+                      //没有默认一个空数据
+                      map[eventType] = [];
+                  }
+                  //添加数据
+                  handler && map[eventType].push(handler);
+              },
+              //删除代理
+              off : function(eventType, handler) {
+                  var item = map[eventType];
+                  for (var i = 0 , len = item.length; i < len; i++) {
+                      if (item === handler) {
+                          item.splice(i, 1);
+                          break;
+                      }
+                  }
+              },
+
+              fire : function(eventType,data) {
+                  //获取要传递数据的控制器
+                  var item = map[eventType];
+                  if (map && item) {
+                      for (var i = 0; i < item.length; i++) {
+                          //实行函数
+                          item[i](data);
+                      }
+                  }
+              }
+          };
+          return props;
+      });
+      //控制器 1
+			app.controller('myAppCon1',['$scope','props',function($scope,props){
+          $scope.data = {
+            "name" : "1111"
+          };
+          //订阅传递数据的服务
+          props.on('myAppCon1',function(data){
+            $scope.data = data;
+          });
+
+          //添加点击事件
+          $scope.test = function(){
+            //向控制器 2 传送数据
+            props.fire('myAppCon2',{
+              "name" : Math.random()
+            });
+          };
+			}]);
+
+      //控制器 2
+      app.controller('myAppCon2',['$scope','props',function($scope,props){
+        $scope.data = {
+          "name" : "22222"
+        };
+        //订阅传递数据的服务
+        props.on('myAppCon2',function(data){
+          $scope.data = data;
+        });
+
+        //添加点击事件
+        $scope.test = function(){
+          //向控制器 1 传送数据
+          props.fire('myAppCon1',{
+            "name" : Math.random()
+          });
+        };
+			}]);
+
+
+
+
+		</script>
+  </body>
+</html>

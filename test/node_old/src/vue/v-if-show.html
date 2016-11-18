@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件</title>
+		
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+		<style>
+			.box{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app">
+			<p>姓名 ： {{ username }}</p>
+			<p>年龄 ： {{ age }}</p>
+			<p>性别 ： {{ sex }}</p>
+			<div class="box" v-on:click.self="click_test">
+				<p>1111</p>
+				<p>22222</p>
+				<p>33333</p>
+			</div>
+			<br />
+			<br />
+			<div data-state="if" v-if="display">
+				{{ text ? text : "这里是 v-else 展示的内容" }}
+			</div>
+			<div data-state="if" v-else>
+				这里是 v-else 展示的内容
+			</div>
+			
+			<br />
+			<div data-state="show" v-show="display">
+				{{ text }}
+			</div>
+		</div>
+		
+		<script>
+			// getter  当读取这个数据的时候触发
+			// setter  当修改这个数据的时候触发
+		
+			require(["vue"],function(Vue){
+				var app = new Vue({
+					el: '#app', //渲染的 dom 对象
+				  	//描述数据
+				  	data: {
+				  		display : false,
+					  	//数据
+					    username: '张三',
+					    age : "22",
+					    sex : "男",
+					    text : "我是某某学校 某某班级 某某学生"
+				  	},
+				  	//事件
+				  	methods : {
+				  		//事件名
+				  		click_test : function(event){
+				  			console.log(this);
+				  		}
+				  	}
+				});
+				
+//				setInterval(function(){
+//					app.$data.username = Math.random().toFixed(5);
+//				},1000);
+			});
+		</script>
+	</body>
+</html>

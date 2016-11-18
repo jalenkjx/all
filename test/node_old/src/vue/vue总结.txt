@@ -1,0 +1,33 @@
+双向绑定语法  - (模板)
+
+	两个花括号  {{ 变量名 }}
+	         {{ 简单的表达式 }}
+	         
+	Vue({
+		data : {
+			"变量名" : "值"
+		}
+	})
+	         
+事件绑定  指令
+
+	v-on:click:事件名
+	
+		Vue({
+			methods : {
+				"事件名" : function(){
+				
+				}
+			}
+		})
+		
+指令 ： 
+	v-if
+	v-else
+	v-show
+	v-for  (for in 语法)
+		v-for="item in items"
+	
+		
+
+	

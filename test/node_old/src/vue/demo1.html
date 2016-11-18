@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+	</head>
+	<body>
+		<div id="app">
+		  {{ message }}
+		</div>
+		
+		<hr />
+		
+		<div id="demo">
+		  {{ text ? "a" : "b" }}
+		</div>
+		
+		<script>
+			require(["vue"],function(Vue){
+				var app = new Vue({
+				  	el: '#app', //渲染的 dom 对象
+				  	//描述数据
+				  	data: {
+					  	//数据
+					    message: 'Hello Vue!'
+				  	}
+				});
+				
+				var demo = new Vue({
+				  	el: '#demo', //渲染的 dom 对象
+				  	//描述数据
+				  	data: {
+					  	//数据
+					    text: false
+				  	}
+				});
+			});
+		</script>
+	</body>
+</html>

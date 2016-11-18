@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>组件</title>
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+	</head>
+	<body>
+		<div id="example">
+			<!-- 自定义组件 -->			
+		  	<first_com></first_com>
+		</div>
+		----------------------
+		<div id="demo">
+			<!-- 自定义组件 -->			
+		  	<first_com></first_com>
+		</div>
+		<script>
+			require(["vue"],function(Vue){
+				// 定义
+				// 扩展组件
+				var MyComponent = Vue.extend({
+					data : function(){
+						return {
+							"list" : ["a","b","c"]
+						}
+					},
+					// 定义组件展示的内容
+				  	template: '<div v-on:click="test_click">'+
+				  		'<p v-for="item in list">{{item}}</p>'+
+				  	'</div>',
+				  	methods : {
+				  		"test_click" : function(){
+				  			alert(11111);
+				  		}
+				  	}
+				})
+				
+				// 创建根实例
+				new Vue({
+				  	el: '#example',
+				  	//定义为局部组件
+				  	//绑定局部组件
+				  	components : {
+				  		'first_com' : MyComponent
+				  	}
+				});
+				
+				new Vue({
+					el : "#demo",
+					//定义为局部组件
+				  	components : {
+				  		'first_com' : MyComponent
+				  	}
+				});
+			});
+		</script>
+	</body>
+</html>

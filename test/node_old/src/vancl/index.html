@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script>
+			function setFontSize(){
+				// 设计稿 640px
+				var width = document.documentElement.clientWidth;
+				var fontSize = (width / 640) * 100;
+				document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
+			}
+			$(window).on("resize",setFontSize);
+			setFontSize();
+	
+		</script>
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/fake/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		
+		<style>
+			.swiper-container {
+	        width: 100%;
+	        height: ;
+	    }
+	    .swiper-slide {
+	        text-align: center;
+	        background: #fff;
+	        /* Center slide text vertically */
+	        display: -webkit-box;
+	        display: -ms-flexbox;
+	        display: -webkit-flex;
+	        display: flex;
+	        -webkit-box-pack: center;
+	        -ms-flex-pack: center;
+	        -webkit-justify-content: center;
+	        justify-content: center;
+	        -webkit-box-align: center;
+	        -ms-flex-align: center;
+	        -webkit-align-items: center;
+	        align-items: center;
+	    }
+	    .swiper-slide img{
+	    	width: 6.4rem;
+	    	height: 3.8rem;
+	    }
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<header>
+				<form class="searchForm">
+					<input type="submit" value="" class="headerSubmit" />
+					<input type="search" class="headerSearch" placeholder="穆旦" />
+				</form>
+				<a class="indexMessage">
+					<span></span>
+				</a>
+			</header>
+		</div>
+		<div class="indexContent">
+			<!-- Swiper 开始-->
+		    <div class="swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide"><img class="lazyLoad" src="http://i2.m.vancl.com/wap/2016_10_10_15_33_37_2980_640x402.jpg" alt="羽绒服m"></div>
+		            <div class="swiper-slide"><img class="lazyLoad" src="http://mimages.vancl.com/wap/2016_10_12_17_27_33_691_640x402.jpg" alt="外套频道m"></div>
+		            <div class="swiper-slide"><img class="lazyLoad" src="http://i6.m.vancl.com/wap/2016_10_17_16_20_34_6583_640x402.jpg"  alt="鞋频道m"></div>
+		            <div class="swiper-slide"><img class="lazyLoad" src="http://i9.m.vancl.com/wap/2016_9_30_16_45_5_9292_640x402.jpg"  alt="针织衫m"></div>
+		            <div class="swiper-slide"><img class="lazyLoad" src="http://i6.m.vancl.com/wap/2016_10_17_16_20_34_6583_640x402.jpg"  alt="鞋频道m"></div>
+		        </div>
+		        <!-- Add Pagination -->
+		        <div class="swiper-pagination"></div>
+		    </div>
+			<!-- Swiper结束 -->
+			<section>
+			 	<!--<div class="warning"> 
+			 		<a>
+			 			<img src="http://i4.m.vancl.com/wap/2016_9_13_11_22_35_4479_640x80.jpg">
+			 		</a> 
+			 	</div>-->
+			 	<figure>
+			 		<figcaption>
+			 			<img src="http://i5.m.vancl.com/wap/2016_9_12_10_40_41_5537_640x80.jpg" alt="" />
+			 		</figcaption>
+			 		<div class="list">
+			 			<ul>
+			 				
+			 			</ul>
+			 		</div>
+			 	</figure>
+			 </section>
+		</div>
+		<div id="nav">
+			<a href=""><span id="navHome" class="navHomeActive"></span></a>
+			<a href=""><span id="navSearch" class="navSearch"></span></a>
+			<a href=""><span id="navTshirt" class="navTshirt"></span></a>
+			<a href=""><span id="navCart" class="navCart"></span><i class="goodsNum">0</i></a>
+			<a href=""><span id="navMine" class="navMine"></span></a>
+		</div>
+		<script>
+			function format(html,data){
+		    	return html.replace(/{{([\w]+)}}/ig,function(value,key){
+		    		return data[key] || value;
+		    	})
+		    }
+			require(['swiper','fanke/fanke'],function(Swiper,list){
+				var swiper = new Swiper('.swiper-container', {
+			        pagination: '.swiper-pagination',
+			        nextButton: '.swiper-button-next',
+			        prevButton: '.swiper-button-prev',
+			        paginationClickable: true,
+			        spaceBetween: 30,
+			        centeredSlides: true,
+			        autoplay: 2500,
+			        autoplayDisableOnInteraction: false
+			    });
+		    
+			    list.shoplist(function(result){
+			    	if(result.success){
+			    		var tpl = '<li>' + 
+			    			'<a href="#{{link}}">'+
+			    			'<img src="{{src}}"/>'+
+			    			'</a>'+'</li>';
+			    		var html = '';
+			    		result.list.forEach(function(item,i){
+			    			html += format(tpl,item);
+			    		});
+			    		$("ul",".list").html(html);
+			    	}
+			    })
+			});
+			require(['hash','fanke/detail','vue'],function(hash,detail,Vue){
+				//商品专题页面
+				//alert(hash.addroute);
+				hash.addroute(/^\/shop\/detail/,function(url){
+					//alert();
+					//把呈现内容的DOM结构清空
+					$('section').html('loading...');
+					//获取专题的商品数据
+					detail.getdetail(url,function(result){
+						//先判断数据是否可用
+						if(result.success){
+							var tpl = '<li>'+
+								//数据值填写为对象中的key(键值)
+								'<a href="#{{link}}">'+//商品链接
+								'<img src="{{src}}"/>'+//商品图片
+								'<p>{{name}}</p>'+//商品名字
+								'<p>{{price}}</p>'+//商品价格
+								'</a></li>';
+							//拼接DOM结构必要的html元素
+							var html = '<figure>'+
+								'<div class="list">'+'<ul>';
+							result.data.forEach(function(item,i){
+								html += format(tpl,item);
+							});
+							html += '</ul></div></figure>';
+							//把拼接好的字符串添加到页面DOM中
+							$('section').html(html);
+							//console.log(html);
+						}
+					});
+				});
+				//商品详情
+				hash.addroute(/^\/page\/[0-9]+/,function(url){
+					detail.getpage(url,function(result){
+						console.log(result);
+						if(result.success){
+							$('.swiper-container').html('');
+							var tpl = '<div class="imgBox" id="imgBox">'+
+								'<img src="'+result.data.imgs[0]+'"/>'+
+								'<img src="'+result.data.imgs[1]+'"/>'+
+								'<p>{{name}}</p>'+
+								'<p>{{price}}</p>'+
+							'</div>';
+							//拼接DOM结构必要的html元素
+							var html = '<figure>'+
+								'<div class="list">';
+								html += tpl;
+							html += '</div></figure>';
+							//把拼接好的字符串添加到页面DOM中
+							$('section').html(html);
+							//console.log(html);
+							$('.imgBox img').css('width','6.4rem');
+							$('.imgBox p').css({'font-size':'0.3rem','margin':'0.2rem'});
+							$('section').css('margin','1rem 0');
+							
+							var imgBox = new Vue({
+								el:'#imgBox',  //渲染的DOM元素
+								data:{
+									//数据
+									name:result.data.name,
+									price:result.data.price
+								}
+							})
+						}
+					});
+				});
+							
+			});
+		</script>
+	</body>
+</html>

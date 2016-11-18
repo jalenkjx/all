@@ -1,0 +1,12 @@
+
+http://www.baidu.com:80/a/b/c/d.html?key1=1&key2=2&key3=3#/abc/def/ghhh
+
+#号以后的叫 hash (传统的叫法 锚点)
+
+早期的 单页面开发技术核心点使用这个事件来做底层支持
+
+监听页面地址栏中的 hash 值发生改变
+
+window.addEventListener("hashchange",function(){
+	console.log(location.hash);
+})

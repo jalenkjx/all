@@ -1,0 +1,7 @@
+amd ： require.js
+
+cmd : sea.js
+
+-----------------------
+
+commonjs  : node.js

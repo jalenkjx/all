@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/static/css/main.css" />
+	</head>
+	<body>
+		{% block header %}
+			<!--默认值 -->
+			{% include "header.html" %}
+		{% endblock %}
+		
+		
+		{% block body%}
+			
+		{% endblock %}
+		
+		{% include "footer.html" %}
+		<script src="/static/js/require.js"></script>
+		<script src="/static/js/config.js"></script>
+		{% block footer %}
+		{% endblock %}
+	</body>
+</html>

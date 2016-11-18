@@ -1,0 +1,10 @@
+<script>
+	function resize(){
+		var width = document.documentElement.clientWidth;
+		var fontsize = (width / 640) * 100;
+		document.getElementsByTagName("html")[0].style.fontSize = fontsize + "px";
+	}
+	//监听浏览器发生大小变化
+	window.addEventListener("resize",resize);
+	resize();
+</script>

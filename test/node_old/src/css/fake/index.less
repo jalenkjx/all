@@ -1,0 +1,176 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+     font-size: 0.32rem;
+}
+ul ,li, ol {
+	list-style-type: none;
+}
+header{
+	height: 1rem;
+	width: 100%;
+	background-color: #b81c22;
+	position: relative;
+}
+header .search-form {
+    position: absolute;
+    left: 0.2rem;
+    top: 0.5rem;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 85%;
+    height: 0.5rem;
+    line-height: 0.1rem;
+    background-color: #fff;
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+#search-btn{
+	position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    display: inline-block;
+    margin-left: 0.2rem;
+    width: 0.5rem;
+    height: 0.4rem;
+    border: 0;
+    background: url(http://i10.m.vancl.com/Content/H5/img/search2.png) no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+#search-input{
+    position: absolute;
+    left: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 85%;
+    height: 85%;
+    display: inline-block;
+    border: 0 none;
+    vertical-align: middle;
+}
+.index-message {
+   	position: absolute;
+    top: 50%;
+    right: 0.2rem;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    display: inline-block;
+    background: url(http://i10.m.vancl.com/Content/H5/img/msg3.png) no-repeat;
+    background-size: cover;
+    -webkit-background-size: 0.5rem 0.5rem;
+    cursor: pointer;
+}
+/*内容块*/
+.warning{
+	height: 0.95rem;
+}
+.warning a{
+	width: 100%;
+	display: block;
+}
+.warning a img{
+    width: 100%;
+    height: auto;
+}
+figure figcaption img{
+	display: block;
+    height: 1rem;
+    width: 100%;
+}
+.list{
+	width: 100%;
+	z-index: 999;
+}
+.list ul li{
+	width: 50%;
+	
+	float: left;
+	font-size: 0.32rem;
+	text-align: center;
+}
+.list ul li img{
+	width: 100%;
+	height: 3.62rem;
+}
+/*底部导航栏*/
+nav{
+    position: fixed;
+    bottom: 0;
+    max-width: 640px;
+    width: 100%;
+    height: 1.2rem;
+    border-top: 1px solid #999;
+    overflow: hidden;
+    background-color: #fff;
+    z-index: 90;
+}
+nav a {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    float: left;
+    color: #999;
+    text-align: center;
+}
+nav a span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    width: 0.8rem;
+    height: 1rem;
+    background-image: url(http://i8.m.vancl.com/oms/2016_9_30_10_24_37_8593_60x800.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+nav .nav-home {
+    background-position: 0rem 0rem;
+}
+nav .nav-search {
+    background-position: 0rem -1.04rem;
+}
+nav .nav-Tshirt {
+    background-position: 0rem -2.1rem;
+}
+nav .nav-shopcart {
+    background-position: 0rem -3.2rem;
+}
+nav .nav-me {
+    background-position: 0rem -4.3rem;
+}
+
+
+
+.loading{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 0.5rem;
+    font-weight: bold;
+    transition: all 1s;
+}
+.loading.hide{
+    top: 50%;
+    bottom: 50%;
+    background: rgba(255,255,255,1);
+    visibility: hidden;
+    z-index: -1;
+}

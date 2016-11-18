@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件</title>
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+		<style>
+			.box{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<!-- 在什么元素上绑定的 v-for 就把该元素循环很多遍 -->
+				<!-- $index 系统的内部变量，表示当前循环的下标 -->
+				
+				<!-- 要获取元素的 key , value 使用 括号包含两个变量 -->
+				<li v-for="(item,index) in list">
+					{{index}} - {{ item }}
+				</li>
+			</ul>
+			------------------------------
+			<ul>
+				<li v-for="(item,key) in obj">
+					 {{ key }} -  {{ item }}
+				</li>
+			</ul>
+		</div>
+		
+		<script>
+			// getter  当读取这个数据的时候触发
+			// setter  当修改这个数据的时候触发
+		
+			require(["vue"],function(Vue){
+				var app = new Vue({
+					el: '#app', //渲染的 dom 对象
+				  	//描述数据
+				  	data: {
+				  		list : ["a","b","c","d","e","f"],
+				  		obj : {
+				  			"key1" : "1",
+				  			"key2" : "2",
+				  			"key3" : "3",
+				  			"key4" : "4"
+				  		}
+				  	},
+				  	//事件
+				  	methods : {
+				  		//事件名
+				  		click_test : function(event){
+				  			console.log(this);
+				  		}
+				  	}
+				});
+			});
+		</script>
+	</body>
+</html>

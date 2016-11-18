@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件</title>
+		
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			<p>姓名 ： {{ username }}</p>
+			<p>年龄 ： {{ age }}</p>
+			<p>性别 ： {{ sex }}</p>
+			<!--//指令-->
+			<button v-on:click="click_test">点我试试</button>
+		</div>
+		
+		<script>
+			// getter  当读取这个数据的时候触发
+			// setter  当修改这个数据的时候触发
+		
+			require(["vue"],function(Vue){
+				var app = new Vue({
+					el: '#app', //渲染的 dom 对象
+				  	//描述数据
+				  	data: {
+					  	//数据
+					    username: '张三',
+					    age : "22",
+					    sex : "男"
+				  	},
+				  	//事件
+				  	methods : {
+				  		//事件名
+				  		click_test : function(event){
+				  			// this = button
+				  			// this = methods
+				  			// this = app 对象
+				  			// 底层触发的时候 使用 apply / call / bind 修改了当前函数对象
+				  			// this 等于当前 vue 实例
+				  			this.$data.username = Math.random().toFixed(5);
+				  			
+				  			console.log(event);
+				  		}
+				  	}
+				});
+				
+//				setInterval(function(){
+//					app.$data.username = Math.random().toFixed(5);
+//				},1000);
+			});
+		</script>
+	</body>
+</html>

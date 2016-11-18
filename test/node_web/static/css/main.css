@@ -1,0 +1,350 @@
+*{
+	margin : 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+.hide{
+	display: none;
+}
+
+body{
+	width: 6.4rem;
+	font-size: 0.32rem;
+}
+.session{
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top : 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(to bottom, #ccc , #fff); /* 标准的语法 */
+}
+.home .wrap{
+	position: absolute;
+	left: 0;
+	top : 0;
+	right: 0;
+	bottom: 0;
+	background: url(../images/index/bg.png) no-repeat top center;
+	 /*缩放到容器大小*/ 
+	background-size: contain;
+}
+.home .button {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0.79rem;
+	text-align: center;
+}
+.home .button .btn-activity {
+    background-image: url(../images/index/btn-activity.png);
+}
+
+.home .button .btn-prize {
+    right: 125px;
+    background-image: url(../images/index/btn-prize.png);
+}
+
+.home .button :nth-child(1n+1) {
+    width: 1.81rem;
+    height: 0.69rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+}
+
+.home .m{
+    position: absolute;
+    width: 2.06rem;
+    height: 1.32rem;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+	transform: translateY(-50%);    
+	transition: all 0.3s;
+}
+.home .m:before,
+.home .m:after{
+	content: "";
+	position: absolute;
+	left:0;
+	top:0;
+	right: 0;
+	bottom: 0;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	opacity: 1;
+}
+.home .m:before{
+	z-index: 3;
+	background-image: url(../images/index/m.png);
+}
+.home .m:after{
+	z-index: 4;
+	background-image: url(../images/index/l.png);
+	animation: m 1s infinite;
+}
+@keyframes m{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+
+.home .door{
+	position: absolute;
+    width: 2rem;
+    height: 3.03rem;
+    top: 5.57rem;
+    left: 2.32rem;
+    overflow: hidden;
+}
+.home .door:before,
+.home .door:after{
+	content: "";
+	position: absolute;
+	top:0;
+	bottom: 0;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	z-index: 1;
+	
+	transition: all 2s;
+	transform: translateX(0);
+	
+}
+.home .door:before{
+	left:0;
+	right: 50%;
+	background-image: url(../images/index/door-left.png);
+}
+.home .door:after {
+	left:50%;
+	right: 0;
+    background-image: url(../images/index/door-right.png);
+}
+
+
+
+/*@keyframes animate_left{
+	0%{
+		transform: translateX(0);
+	}
+	100%{
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes animate_right{
+	0%{
+		transform: translateX(0);
+	}
+	100%{
+		transform: translateX(100%);
+	}
+}*/
+
+
+.home .smoke{
+	background: url(../images/index/smoke.png) no-repeat;
+	background-size: contain;
+	height: 5.95rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	transition: all 1.5s;
+	transform: translateY(100%);
+}
+
+
+
+
+.home .knight{
+	background: url(../images/index/knight.png) no-repeat left center;
+	background-size: contain;
+	height: 5.95rem;
+	position: absolute;
+	left: 10%;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	transition: all 1.5s;
+	transform: translateX(-120%);
+}
+.home .knight .reel{
+	display: block;
+	position: absolute;
+    left: 2.08rem;
+    top: 1.71rem;
+    width: 1.11rem;
+    height: 2.03rem;
+    background: url(../images/index/reel.png) no-repeat;
+    background-size: contain;
+    animation: m 1s infinite;
+}
+    
+
+
+.home.animation .door .m{
+	opacity: 0;
+}
+.home.animation .door:before{
+	transform: translateX(-100%);
+	/*animation-fill-mode: forwards;*/
+}
+.home.animation .door:after{
+	transform: translateX(100%);
+}
+
+.home.animation .smoke{
+	transition-delay: 2s;
+	transform: translateY(0);
+}
+
+.home.animation .knight{
+	transition-delay: 3.5s;
+	transform: translateX(0);
+}
+
+
+/* ------------- */
+
+
+
+.step{
+	background: url(../images/step-e/bg.jpg) no-repeat;
+	animation: step_move 5s linear;
+	animation-fill-mode: forwards;
+	background-size: 12.74rem 96%;
+}
+
+@keyframes step_move{
+	0%{
+		background-position: left top;
+	}
+	100%{
+		background-position: right top;
+	}
+}
+
+.step .knight {
+    position: absolute;
+    width: 3.22rem;
+    height: 3.16rem;
+    bottom: 2.70rem;
+    left: 0;
+    background: url(../images/step-e/knight-1.png) no-repeat 0px 100%;
+    background-size: contain;
+    
+    animation: 0.8s knight_move 7 reverse linear;
+}
+.step a{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+@keyframes knight_move{
+	0%{
+		background-image: url(../images/step-e/knight-1.png);
+	}
+	100%{
+		background-image: url(../images/step-e/knight-2.png);
+	}
+}
+
+
+
+/* --------- */
+
+.game{
+    background: url(../images/game/bg.png) no-repeat center center;
+    background-size: 100% 6.84rem;
+}
+.game .ready{
+	position: absolute;
+	left:0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 16;
+	background:url(../images/game/ready.png) no-repeat;
+	background-size: cover;
+	transition: all 0.5s;
+}
+.game.on .ready{
+	opacity: 0;
+	visibility: hidden;
+}
+
+.game #drink{
+	position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.84rem;
+    height: 5.07rem;
+    background: url(../images/game/drink-1.png) no-repeat center 0px;
+    background-size: contain;
+    z-index: 1;
+}
+.game #drink.move{
+	animation: drink_move 1s;
+}
+@keyframes drink_move{
+	0%{
+		background-image: url(../images/game/drink-1.png);
+	}
+	100%{
+		background-image: url(../images/game/drink-2.png);
+	}
+}
+
+.game .vodka{
+	position: absolute;
+	width: 1.84rem;
+	height: 2.52rem;
+	left: 0;
+	top: 38%;
+	text-align: center;
+	animation: vodka_move 2s linear;
+	animation-fill-mode: forwards;
+	z-index: 10;
+}
+.game .vodka i{
+	display: inline-block;
+	width: 0.31rem;
+	height: 100%;
+	background: url(../images/game/vodka.png) no-repeat;
+}
+
+@keyframes vodka_move{
+	80%{
+		opacity: 0.8;
+	}
+	100%{
+		top: 100%;
+		opacity: 0.3;
+	}
+}
+
+.game .hand{
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 3.75rem;
+	height: 2.47rem;
+	background: url(../images/game/hand.png) no-repeat;
+	background-size: contain;
+	transform: translateX(-50%);
+	z-index: 15;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="wrap"></div>
+		<script>
+			var imgs = {
+				"src" : "img/1.jpg",
+				"price" : "200元",
+				"title" : "iphone7"
+			}
+			
+			function tpl(html,data){
+				return html.replace(/{{([\w]+)}}/ig,function(value,$1){
+					// $1 是第一个括号的 匹配结果
+					return data[$1] || value;
+				});
+			}
+			var html= "<img src='{{src}}'>"+
+					"<p>{{price}}</p>"+
+					"<p>{{title}}</p>";
+			
+			document.getElementById("wrap").innerHTML = tpl(html,imgs);
+		</script>
+		
+	</body>
+</html>

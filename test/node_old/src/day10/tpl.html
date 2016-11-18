@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = "0000sfdsa00234";
+			var val = "你好，我是 regexp";
+			var reg = /([a-z]+)/ig;
+			var str1 = str.replace(reg,val);
+			console.log(str1);
+		</script>
+		
+		<script>
+			var phone = "13112345678";
+			var reg2 = /([0-9]{4})([0-9]{3})([0-9]{4})/;
+			
+			console.log(phone.replace(reg2,"$1***$3"));
+			
+			var res = phone.replace(reg2,function(value,$1,$2,$3){
+				console.log(value+'%');
+				console.log($1,$2,$3);
+				return $1+"***"+$3;
+			});
+			console.log(res);
+			
+			console.log("--------------------");
+		</script>
+		
+		<script>
+			+function(){
+				var obj = {
+					"name" : "张三"
+				}
+				var str = "0000name00234";
+				
+				var str1 = str.replace(/([a-z]+)/,function(value,$1){
+					// $1 是第一个括号的 匹配结果
+					return obj[$1] || value;
+				});
+				console.log(str1);
+			}();
+			console.log("-------------------------------");
+		</script>
+		
+		
+		<script>
+			+function(){
+				var obj = {
+					"name" : "张三",
+					"age" : "22岁",
+					"sex" : "男"
+				}
+				var str = "<h1>name : {{name}}</h1>"+
+							"<h1>age :{{age}}</h1>"+
+							"<h1>{{sex}}</h1>";
+				
+				var str1 = str.replace(/{{([\w]+)}}/ig,function(value,$1){
+					console.log(value)
+					console.log($1+'*')
+					// $1 是第一个括号的 匹配结果
+					return obj[$1] || value;
+				});
+				console.log(str1);
+			}();
+		</script>
+	</body>
+</html>

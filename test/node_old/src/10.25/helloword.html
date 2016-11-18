@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/require.js"></script>
+		<script src="../js/config.js"></script>
+		<style>
+			button{
+				width: 100px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+		</div>
+		<div id="demo">
+			{{text?'a':'b'}}
+		</div>
+		<div id="name">
+			<p>姓名：{{name}}</p>
+			<p>年龄：{{age}}</p>
+			<p>性别：{{gender}}</p>
+			<button v-on:click = 'click_test'></button>
+			<div class="box" v-on:click.self = 'click_test'>
+				<p>11111</p>
+				<p>22222</p>
+			</div>
+			<div data-state = 'if' v-if = 'display'>
+				{{text}}
+			</div>
+			<div data-state = 'if' v-else>
+				这里是v-else展示的内容
+			</div>
+			<div data-state = 'show' v-show = 'display'>
+				{{text}}
+			</div>
+			<ul>
+				<!--在什么元素上绑定的v-for就把该元素循环很多遍-->
+				<li v-for = 'item in list'>
+					{{item}}
+				</li>
+			</ul>
+		</div>
+			
+		<script>
+			require(['vue'],function(Vue){
+				var app = new Vue({
+					el:'#app',  //渲染的DOM元素
+					data:{
+						//数据
+						message:'a'
+					}
+				})
+				var demo = new Vue({
+					el:'#demo',  //渲染的DOM元素
+					data:{
+						//数据
+						text:false
+					}
+				})
+				var name = new Vue({
+					el:'#name',  //渲染的DOM元素
+					data:{
+						//数据
+						name:'张三',
+						age:'13',
+						gender:'male',
+						display:'none',
+						text:'state为true',
+						list:["a","b","c","d"],
+						obj:{
+							"key1":"A",
+							"key2":"B",
+							"key3":"C",
+							"key4":"D"
+						}
+					},
+					methods:{
+						click_test:function(){
+							name.$data.name = Math.random().toFixed(5);
+							//console.log(arguments);
+						}
+					}
+				})
+			})
+		</script>
+	</body>
+</html>
